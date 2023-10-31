@@ -7,3 +7,7 @@ def index(request):
 
 class StudentListView(ListView):
     model = Student
+
+class StudentCreateView(CreateView):
+    model = Student
+    fields = ['first_name', 'last_name', 'email']
