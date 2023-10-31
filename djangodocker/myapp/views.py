@@ -11,3 +11,7 @@ class StudentListView(ListView):
 class StudentCreateView(CreateView):
     model = Student
     fields = ['first_name', 'last_name', 'email']
+
+class StudentUpdateView(UpdateView):
+    model = Student
+    fields = ['first_name', 'last_name', 'email']
