@@ -15,3 +15,7 @@ class StudentCreateView(CreateView):
 class StudentUpdateView(UpdateView):
     model = Student
     fields = ['first_name', 'last_name', 'email']
+
+class StudentDeleteView(DeleteView):
+    model = Student
+    success_url = reverse_lazy('student_list')
