@@ -23,3 +23,30 @@ You also want to add the index in the url file
 
 
 - python manage.py startapp myapp
+
+
+
+10/27/23 Instructions 
+
+
+
+I set up the crude project as he said and he requested that we all have commits so I am gonna share sum of the commands that are gonna a lot you to make changes to the sql lite file 
+
+
+this command allows you to run the server 
+
+python manage.py runserver
+
+
+this command allows you to generate a random student object  
+
+from myapp.factories import StudentFactory
+students = StudentFactory.create_batch(5)
+
+
+
+allows you to delete a student 
+
+student = Student.objects.get(pk=1)  # Get the student with primary key 1
+student.delete()  # Delete that student
+
