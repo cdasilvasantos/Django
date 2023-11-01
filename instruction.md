@@ -37,12 +37,10 @@ this command allows you to run the server
 
 python manage.py runserver
 
-
 this command allows you to generate a random student object  
 
 from myapp.factories import StudentFactory
 students = StudentFactory.create_batch(5)
-
 
 
 allows you to delete a student 
