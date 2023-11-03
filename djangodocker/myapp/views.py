@@ -16,11 +16,16 @@ class StudentListView(ListView):
 class StudentCreateView(CreateView):
     model = Student
     fields = ['first_name', 'last_name', 'email']
+    template_name = 'myapp/student_list.html'  # Specify your template name here
+    success_url = reverse_lazy('student_list')
 
 class StudentUpdateView(UpdateView):
     model = Student
     fields = ['first_name', 'last_name', 'email']
+    template_name = 'myapp/student_list.html'  # Specify your template name here
+    success_url = reverse_lazy('student_list')
 
 class StudentDeleteView(DeleteView):
     model = Student
-    success_url = reverse_lazy('student_list')
+    template_name = 'myapp/student_list.html'  # Specify your template name here
+    success_url = reverse_lazy('student_list')  # Use the name of your list view url

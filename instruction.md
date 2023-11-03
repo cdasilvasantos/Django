@@ -1,6 +1,12 @@
 This what I did to make it work
 
 
+docker run -d \          
+--name watchtower \
+-v /var/run/docker.sock:/var/run/docker.sock \
+containrrr/watchtower
+
+
 
 I created a python enviroment using the command below 
 
@@ -33,9 +39,13 @@ You also want to add the index in the url file
 I set up the crude project as he said and he requested that we all have commits so I am gonna share sum of the commands that are gonna a lot you to make changes to the sql lite file 
 
 
-this command allows you to run the server 
+this command allows you to run the server: python manage.py runserver(so running the html)
 
-python manage.py runserver
+
+
+
+
+python manage.py shell: this commands allows you to run functions in the terminal
 
 this command allows you to generate a random student object  
 
@@ -45,6 +55,6 @@ students = StudentFactory.create_batch(5)
 
 allows you to delete a student 
 
-student = Student.objects.get(pk=1)  # Get the student with primary key 1
+student = Student.objects.get()  # Get the student with primary key 1
 student.delete()  # Delete that student
 
