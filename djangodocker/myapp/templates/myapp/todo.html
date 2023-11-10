@@ -1,0 +1,38 @@
+<head>
+    <!-- Other head elements -->
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static '/style.css' %}">
+    </head>
+
+<h2>Record List</h2>
+
+<table>
+  <a href="{% url 'todo_new' %}">Add New Todo</a>
+  <!-- myapp/templates/myapp/todo.html -->
+  <thead>
+    <tr>
+      <th>TO DO</th>
+      <th>Time</th>
+      <th>ACTIONS</th>
+    </tr>
+</thead>
+<tbody>
+    {% if todos %}
+        {% for todo in todos %}
+        <tr>
+          <td>{{ todo.this_item }}</td>
+          <td>{{ todo.time }}</td>
+          <td>
+            <a href="{% url 'todo_edit' todo.id %}">Edit</a> 
+            <a href="{% url 'todo_delete' todo.id %}">Delete</a>
+          </td>
+        </tr>
+        {% endfor %}
+        {% else %}
+        <tr>
+          <td colspan="3">No todo items yet.</td>
+        </tr>
+    {% endif %}
+</tbody>
+</table>
+

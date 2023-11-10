@@ -1,12 +1,9 @@
-# urls.py
 from django.urls import path
-from .views import record_list, record_detail, record_edit, record_delete, record_create
+from .views import TodoListView, TodoCreateView, TodoUpdateView, TodoDeleteView
 
 urlpatterns = [
-    path('records/', record_list, name='record_list'),
-    path('records/<int:pk>/', record_detail, name='record_detail'),
-    path('records/<int:pk>/edit/', record_edit, name='record_edit'),
-    path('records/<int:pk>/delete/', record_delete, name='record_delete'),
-    path('records/create/', record_create, name='record_create'),
-    # Add other URLs for create, update, delete views
+    path('', TodoListView.as_view(), name='todo'),
+    path('todo/new/', TodoCreateView.as_view(), name='todo_new'),
+    path('<int:pk>/edit/', TodoUpdateView.as_view(), name='todo_edit'),
+    path('<int:pk>/delete/', TodoDeleteView.as_view(), name='todo_delete'),
 ]

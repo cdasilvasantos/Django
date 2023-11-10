@@ -22,6 +22,6 @@ from myapp import views
 urlpatterns = [
     
     # path('admin/', admin.site.urls),
-    path('', views.index, name='index'),  # Keeps the index view
-    path('students/', include('myapp.urls')),  # Includes your app's URLs under the 'students/' path
+    path('', views.index, name='todo'),  # Keeps the index view
+    path('todo', include('myapp.urls')),  # Includes your app's URLs under the 'students/' path
 ]
