@@ -1,13 +1,12 @@
-from django.urls import path, include
-from .views import StudentListView, StudentCreateView, StudentUpdateView, StudentDeleteView
+# urls.py
+from django.urls import path
+from .views import record_list, record_detail, record_edit, record_delete, record_create
 
 urlpatterns = [
-
-    # path('admin/', admin.site.urls),
-    path('', StudentListView.as_view(), name='student_list'),
-    path('new/', StudentCreateView.as_view(), name='student_new'),
-    path('new/', StudentCreateView.as_view(), name='student_create'),  # Ensure this is named 'student_create'
-    path('<int:pk>/edit/', StudentUpdateView.as_view(), name='student_update'),  # Ensure this is named 'student_update'
-    path('<int:pk>/edit/', StudentUpdateView.as_view(), name='student_edit'),
-    path('<int:pk>/delete/', StudentDeleteView.as_view(), name='student_delete'),
+    path('records/', record_list, name='record_list'),
+    path('records/<int:pk>/', record_detail, name='record_detail'),
+    path('records/<int:pk>/edit/', record_edit, name='record_edit'),
+    path('records/<int:pk>/delete/', record_delete, name='record_delete'),
+    path('records/create/', record_create, name='record_create'),
+    # Add other URLs for create, update, delete views
 ]
