@@ -58,3 +58,4 @@ allows you to delete a student
 student = Student.objects.get()  # Get the student with primary key 1
 student.delete()  # Delete that student
 
+command for seeding, migrating, and pytesting
