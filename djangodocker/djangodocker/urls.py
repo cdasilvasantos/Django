@@ -17,11 +17,14 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from myapp import views
+from myapp.views import todo_view  # Import the view
+
 
 
 urlpatterns = [
     
     # path('admin/', admin.site.urls),
-    path('', views.index, name='todo'),  # Keeps the index view
-    path('todo', include('myapp.urls')),  # Includes your app's URLs under the 'students/' path
+    # path('', views.index, name='todo_list'),  # Keeps the index view
+    path('', include('myapp.urls')),  # Includes your app's URLs under the 'students/' path
+    # path('', todo_view, name='home'), 
 ]
