@@ -154,9 +154,9 @@ def test_view_url_exists_at_desired_location(self):
 
 ```
 2. Run: To run these tests you are going to use the command below in your terminal:
-python3 manage.py test
-```
 
+```
+python3 manage.py test
 ```
 
 
