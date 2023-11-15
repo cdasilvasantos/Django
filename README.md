@@ -125,6 +125,11 @@ class MyModelTests(TestCase):
 
         count_after = MyModel.objects.count()
         self.assertEqual(count_after, count_before + 1)
+
+You are then going to create tests based on your criteria, examples being ensuring the factory works, the creation of your desired template functions, and much more. 
+
+Example Tests can be like the following : 
+
 ```
 2. Run:
 ```
