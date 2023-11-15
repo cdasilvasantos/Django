@@ -143,14 +143,31 @@ You are then going to create tests based on your criteria, examples being ensuri
 
 Example Tests can be like the following : 
 ```
-def test_view_url_exists_at_desired_location(self):
-        response = self.client.get('/students/')
-        self.assertEqual(response.status_code, 200)
+class StudentUpdateViewTest(TestCase):
+    def setUp(self):
+        self.student = StudentFactory.create()
 
-    def test_view_uses_correct_template(self):
-        response = self.client.get(reverse('student_list'))
-        self.assertEqual(response.status_code, 200)
-        self.assertTemplateUsed(response, 'myapp/student_list.html')
+    def test_update_student(self):
+        post_data = {
+            'first_name': 'Jane',
+            'last_name': 'Doe',
+            'email': 'jane.doe@example.com'
+        }
+        url = reverse('student_update', kwargs={'pk': self.student.pk})
+        response = self.client.post(url, post_data)
+        self.assertEqual(response.status_code, 302)
+        self.student.refresh_from_db()
+        self.assertEqual(self.student.first_name, 'Jane')
+
+class StudentDeleteViewTest(TestCase):
+    def setUp(self):
+        self.student = StudentFactory.create()
+
+    def test_delete_student(self):
+        url = reverse('student_delete', kwargs={'pk': self.student.pk})
+        response = self.client.post(url)
+        self.assertEqual(response.status_code, 302)  # Redirect on success
+        self.assertEqual(Student.objects.count(), 0)
 
 ```
 2. Run: To run these tests you are going to use the command below in your terminal:
