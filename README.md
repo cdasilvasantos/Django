@@ -11,6 +11,7 @@ Welcome to our tutorial on building a Django backend with a database. In this tu
 Ensure that you have the following installed on your system
 - Python
 - Pip (Python Package Installer)
+- factories
 - Django
 
 To install Django, run the following command on terminal:
