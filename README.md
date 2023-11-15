@@ -23,3 +23,9 @@ django-admin startproject myproject
 
 2. Navigate to Your Project:
 cd my project
+
+#### Step 2: Creating Migrations and Models
+1. Create a Django App: python manage.py startapp myapp
+(you may need to change python to python3 depending on the version you are using)
+
+2. Define a Model:
