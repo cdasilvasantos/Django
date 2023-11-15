@@ -130,9 +130,20 @@ You are then going to create tests based on your criteria, examples being ensuri
 
 Example Tests can be like the following : 
 
+def test_view_url_exists_at_desired_location(self):
+        response = self.client.get('/students/')
+        self.assertEqual(response.status_code, 200)
+
+    def test_view_uses_correct_template(self):
+        response = self.client.get(reverse('student_list'))
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, 'myapp/student_list.html')
+
+
 ```
 2. Run:
 ```
+To run these tests youa are going to use the command below in your terminal:
 python3 manage.py test
 ```
 
