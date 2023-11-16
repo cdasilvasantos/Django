@@ -2,6 +2,9 @@
 ### Introduction
 Welcome to our tutorial on building a Django backend with a database. In this tutorial, we'll cover the basics of Django, migrations, models, factories, seeding the database with fake data, and testing the database. This step-by-step guide will help other users in developing a solid foundation using Django. 
 
+### Summary 
+Django, a high-level Python web framework, empowers developers with a robust toolkit for rapid and clean web application development. Operating on the Model-View-Controller (MVC) pattern, Django facilitates efficient creation of scalable and maintainable applications. In this tutorial, we'll guide you through crucial aspects of Django development, including migrations, models, factories, seeding the database with fake data, and testing. These technologies are fundamental for any developer aspiring to craft reliable and scalable web applications. Mastery of Django and its associated tools equips you with the skills necessary to build efficient, well-architected backend systems. Join us as we explore the world of Django, empowering your journey in web development!
+
 ### Authors
 - Chiara daSilva Santos
 - Christian Wantong
