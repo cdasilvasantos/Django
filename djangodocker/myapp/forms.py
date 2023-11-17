@@ -1,8 +1,8 @@
 # forms.py
 from django import forms
-from .models import todoList
+from .models import TodoList
 
 class TodoListForm(forms.ModelForm):
     class Meta:
-        model = todoList
+        model = TodoList
         fields = ['this_item', 'time']  # List all fields you want to include in your form

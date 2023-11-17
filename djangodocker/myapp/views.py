@@ -1,42 +1,36 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect, get_object_or_404
 from django.urls import reverse_lazy
 from django.views.generic import ListView, CreateView, UpdateView, DeleteView
-from .models import todoList
-from django.shortcuts import render, redirect, get_object_or_404
-from django.http import HttpResponseRedirect
+from .models import TodoList
 from .forms import TodoListForm
-# Create your views here.
+
+class TodoListView(ListView):
+    model = TodoList
+    template_name = 'myapp/todo.html'
+    context_object_name = 'todos'
+
+class TodoCreateView(CreateView):
+    model = TodoList
+    form_class = TodoListForm
+    template_name = 'myapp/create-todo.html'
+    success_url = reverse_lazy('todo_list')
+
+class TodoUpdateView(UpdateView):
+    model = TodoList
+    form_class = TodoListForm
+    template_name = 'myapp/create-todo.html'
+    success_url = reverse_lazy('todo_list')
+
+class TodoDeleteView(DeleteView):
+    model = TodoList
+    success_url = reverse_lazy('todo_list')
 
 def index(request):
     return render(request, 'myapp/todo.html')
 
-
-def todo_view(request, pk=None):
-    todo = None
-    if pk:
-        todo = get_object_or_404(todoList, pk=pk)
-        form = TodoListForm(request.POST or None, instance=todo)
-    else:
-        form = TodoListForm(request.POST or None)
-
-    if request.method == 'POST' and form.is_valid():
-        form.save()
-        return redirect('todo_view')
-
-    if request.method == 'GET' and 'delete' in request.GET:
-        pk_to_delete = request.GET.get('delete')
-        todoList.objects.filter(pk=pk_to_delete).delete()
-        return redirect('todo_view')
-
-    todos = todoList.objects.all()
-
-    # Use 'todo_form.html' for GET request when adding/editing a todo
-    # if request.method == 'GET' and (pk or not todos):
-    #     return render(request, 'myapp/create-todo.html', {'form': form})
-
-    # Use 'todo.html' to display the list of todos
-    return render(request, 'myapp/todo.html', {'todos': todos, 'form': form})
-
+def todo_view(request):
+    todos = TodoList.objects.all()
+    return render(request, 'myapp/todo.html', {'todos': todos})
 
 def add_todo_view(request):
     if request.method == 'POST':
@@ -48,7 +42,3 @@ def add_todo_view(request):
         form = TodoListForm()
 
     return render(request, 'myapp/create-todo.html', {'form': form})
-
-
-
-

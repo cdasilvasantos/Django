@@ -23,7 +23,7 @@
           <td>{{ todo.this_item }}</td>
           <td>{{ todo.time }}</td>
           <td>
-            <a href="{% url 'todo_view' todo.id %}">Edit</a>
+            <a href="{% url 'todo_view' todo.id %}>edit={{ todo.id }}">Edit</a>
             <a href="{% url 'todo_view' todo.id %}?delete={{ todo.id }}">Delete</a>
             
           </td>
